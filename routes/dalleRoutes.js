@@ -1,8 +1,6 @@
+// dalleRoutes.js
 import express from "express";
-import * as dotenv from "dotenv";
 import { Configuration, OpenAIApi } from "openai";
-
-dotenv.config();
 
 const router = express.Router();
 
@@ -32,10 +30,12 @@ router.route("/").post(async (req, res) => {
     res.status(200).json({ photo: image });
   } catch (error) {
     console.log(error);
-    res.status(500).send(error?.response.data.error.message);
+    res.status(500).send(error?.response?.data?.error?.message);
   }
 });
+
 export default router;
+
 // gLoacakIyYjCCMUU
 // ritanshushivhare123
 // mongodb+srv://ritanshushivhare123:gLoacakIyYjCCMUU@cluster0.fgibs12.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
